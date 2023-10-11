@@ -1,0 +1,53 @@
+% !TeX spellcheck = ru_RU
+\documentclass[a4paper, 14pt, unknownkeysallowed]{extreport}
+\include{../../common/settings}
+
+\begin{document}
+\include{title}
+\setcounter{page}{2}
+
+\chapter{Постановка задачи}
+Цель работы: теоретическое изучение некоторых типовых законов распределения случайных величин.
+
+Согласно 2 варианту по списку было выполнено изучение следующих законов распределения:
+\begin{itemize}
+	\item равномерное распределение на отрезке;
+	\item нормальное распределение.
+\end{itemize}
+
+
+\chapter{Равномерное распределение}
+
+Случайная величина имеет равномерное распределение на отрезке [a, b], если ее плотность распределения p(x) и функция распределения F(x) равны
+
+\begin{equation}
+	
+	p(x) = \begin{cases}
+		\frac{1}{b - a}, a\leq x\leq b;\\
+		0, x < a или x > b.\\
+	\end{cases}, 
+	F(x) =  \begin{cases}
+		0, x < a;\\
+		\frac{x-a}{b-a}, a\leq x\leq b;\\
+		\\1, x > b.
+	\end{cases}
+\end{equation}
+
+Графики плотности распределения p(x) и функции распределения F(x) для разных значений параметров a и b приведены на рисунках \ref{img:1}--\ref{img:2}.
+
+
+\chapter{Нормальное распределение}
+
+Случайная величина распределена по нормальному закону, или имеет нормальное распределение, если ее плотность
+
+\begin{equation}
+	\varphi_{m,\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-m)^2}{2\sigma^2} (-\inf<m<+\inf, \sigma > 0).
+\end{equation}
+
+Функция нормального распределения имеет следующий вид:
+\begin{equation}
+	\Phi_{m, \sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\inf}^{x} e^{-\frac{(x-m)^2}{2\sigma^2} dx.
+\end{equation}
+
+Графики плотности распределения $\varphi_{m,\sigma}(x)$ и функции распределения $\Phi_{m, \sigma}$ для разных значений параметров m и $\sigma$ представлены на рисунках \ref{img:21}--\ref{img:22}.
+\end{document}
