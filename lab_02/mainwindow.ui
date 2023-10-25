@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>221</width>
-      <height>21</height>
+      <width>181</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -29,23 +29,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Размерность матрицы (от 1 до 10):</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_1">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>2</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>3</string>
+     <string>Размерность матрицы:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -54,10 +38,10 @@
    <widget class="QPushButton" name="but_matr">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>240</x>
       <y>0</y>
-      <width>121</width>
-      <height>21</height>
+      <width>191</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -72,10 +56,10 @@
    <widget class="QPushButton" name="but_close_4">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>480</x>
       <y>0</y>
-      <width>121</width>
-      <height>21</height>
+      <width>181</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -84,17 +68,36 @@
      </font>
     </property>
     <property name="text">
-     <string>Пересчитать</string>
+     <string>Вычислить</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="table">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>20</y>
+      <y>30</y>
       <width>1031</width>
-      <height>541</height>
+      <height>531</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>0</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>10</number>
+    </property>
+    <property name="value">
+     <number>3</number>
     </property>
    </widget>
   </widget>
@@ -104,7 +107,7 @@
      <x>0</x>
      <y>0</y>
      <width>1033</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

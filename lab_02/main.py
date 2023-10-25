@@ -1,15 +1,14 @@
 import sys
+from numpy import *
 
-from PyQt5.uic import loadUi
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QColorDialog, QMessageBox, QGraphicsScene, QWidget, QListWidget, QListWidgetItem, QTableWidgetItem
-from PyQt5.QtGui import QColor, QPen, QPixmap, QBrush, QImage, QPainter, QTransform
-from PyQt5.QtCore import QRect, QCoreApplication, QEventLoop, QPointF, QTimerEvent, Qt, QPoint
-from math import sqrt
+from PyQt5 import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import  *
 from func import *
-
+import matplotlib.pyplot as plt
 
 from mainwindow_ui import *
+
 
 class TableModel(QtCore.QAbstractTableModel):
     def __init__(self, data):
@@ -41,21 +40,68 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.bind()
         self.resize_m()
-
    
     def bind(self):
         for i in range(10):
             self.table.setColumnWidth(i, 50)
             self.table.setRowHeight(i, 70)
         self.but_matr.clicked.connect(self.resize_m)
+        self.but_close_4.clicked.connect(self.calc)
 
     def resize_m(self):
-        a = int(self.lineEdit_1.text())
+        self.cur_size = self.spinBox.value()
+        a = self.cur_size
         self.table.setColumnCount(a)
         self.table.setRowCount(a + 2)
+        
+        for i in range(a):
+            for j in range(a):
+                item =  QDoubleSpinBox()
+                item.setMaximum(1e5)
+                item.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.NoButtons) 
+                if i==j:
+                    item.setDisabled(True)
+                self.table.setCellWidget(i, j, item)
 
-        labels = [str(i+1) for i in range(a)] + ["t_пр", "P_i"]
+        for i in (a, a+1):
+            for j in range(a):
+                item = QtWidgets.QTableWidgetItem()
+                item.setFlags(item.flags() ^ ~QtCore.Qt.ItemIsEditable)
+                self.table.setItem(i, j, item)
+
+        labels = [str(i+1) for i in range(a)] + ["P_i","t_пр"]
         self.table.setVerticalHeaderLabels(labels)
+
+
+    def calc(self):
+        matrix = self.extract()
+        n = len(matrix)
+        
+        sp = limit_prob(matrix)
+
+        for i in range(n):
+            self.table.item(n, i).setText(str(round(sp[i], 4)))
+
+        sp1 = stable_time(matrix, sp)
+
+        for i in range(n):
+            self.table.item(n+1, i).setText(str(round(sp1[i], 4)))
+
+        self.table.viewport().update()
+
+
+    def extract(self):
+        n = self.table.columnCount()
+        sp = [[0 for _ in range(n)] for i in range(n)]
+
+        for i in range(n):
+            for j in range(n):
+                a = self.table.cellWidget(i, j)
+                sp[i][j] = float(a.value())
+
+        return sp
+
+
 
 
 
