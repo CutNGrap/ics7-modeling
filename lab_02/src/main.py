@@ -59,8 +59,8 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                 item =  QDoubleSpinBox()
                 item.setMaximum(1e5)
                 item.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.NoButtons) 
-                if i==j:
-                    item.setDisabled(True)
+                # if i==j:
+                #     item.setDisabled(True)
                 self.table.setCellWidget(i, j, item)
 
         for i in (a, a+1):
@@ -69,7 +69,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                 item.setFlags(item.flags() ^ ~QtCore.Qt.ItemIsEditable)
                 self.table.setItem(i, j, item)
 
-        labels = [str(i+1) for i in range(a)] + ["P_i","t_пр"]
+        labels = [str(i+1) for i in range(a)] + ["P_i","t_ст"]
         self.table.setVerticalHeaderLabels(labels)
 
 
