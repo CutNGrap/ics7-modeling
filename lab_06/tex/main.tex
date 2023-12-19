@@ -1,0 +1,66 @@
+% !TeX spellcheck = ru_RU
+\documentclass[a4paper, 14pt, unknownkeysallowed]{extreport}
+\include{settings}
+
+\begin{document}
+\include{title}
+\setcounter{page}{2}
+
+\chapter{Теоретическая часть}
+
+\section{Закон появления сообщений}
+
+Согласно заданию лабораторной работы для генерации сообщений используется равномерный закон распределения.
+Случайная величина имеет равномерное распределение на отрезке $[a, b]$, если её функция плотности $p(x)$ имеет вид:
+
+\begin{equation}
+	\label{for:equal-1}
+	p(x) = 
+	\begin{cases}
+		\frac{1}{b - a}, \text{если } x \in [a, b],\\
+		0, \text{иначе.} \\
+	\end{cases}
+\end{equation}
+
+Функция распределения $F(x)$ равномерной случайной величины имеет вид:
+
+\begin{equation}
+	\label{for:equal-2}
+	F(x) = 
+	\begin{cases}
+		0, \text{если } x  < a, \\
+		\frac{x - a}{b - a}, \text{если } a < x  b,\\
+		1, \text{если } x > b. 
+	\end{cases}
+\end{equation}
+
+Интервал времени между появлением $i$-ого и $(i - 1)$-ого сообщения по равномерному закону распределения вычисляется следующим образом:
+
+\begin{equation}
+	T_{i} = a + (b - a) \cdot R,
+\end{equation}
+где $R$ --- псевдослучайное число от 0 до 1.
+
+\section{Закон обработки сообщений}
+
+Согласно заданию лабораторной работы для генерации сообщений используется нормальный закон распределения.
+Случайная величина имеет равномерное распределение на отрезке [a, b], если ее плотность распределения p(x) и функция распределения F(x) равны
+
+\begin{equation}
+	p(x) = \begin{cases}
+		\frac{1}{b - a}, a\leq x\leq b;\\
+		0, x < a или x > b.\\
+	\end{cases},   
+	F(x) =  \begin{cases}
+		0, x < a;\\
+		\frac{x-a}{b-a}, a\leq x\leq b;\\
+		1, x > b.
+	\end{cases}
+\end{equation}
+
+\chapter{Результат}
+На рисунке \ref{img:ex} приведен пример работы программы.
+\img{0.7}{ex}{Пример работы программы}
+
+
+\end{document}
